@@ -180,6 +180,26 @@
       object-fit: contain;
       background: #ede9e4;
     }
+    .feature-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 17px 0 28px;
+    }
+    .feature-gallery .photo {
+      margin: 0;
+    }
+    .feature-gallery .wide {
+      grid-column: 1 / -1;
+    }
+    .feature-gallery .wide img {
+      height: 360px;
+      object-fit: cover;
+    }
+    .feature-gallery .portrait img {
+      height: 300px;
+      object-fit: cover;
+    }
     .quote {
       margin: 27px 0;
       padding: 20px 16px;
@@ -219,6 +239,9 @@
       p, .intro { font-size: 15px; }
       .lead { font-size: 15px; }
       .photo-grid img { height: 155px; }
+      .feature-gallery .wide img { height: 230px; }
+      .feature-gallery .portrait img,
+      .feature-gallery figure:not(.wide) img { height: 220px; }
     }
   </style>
 </head>
@@ -254,6 +277,20 @@
         <p>校友广场南侧新建锚形立标建筑。锚象征扎根坚守、行稳致远，契合交院交通办学底色。</p>
         <p>后勤完成场地平整、步道修缮与配套绿化养护，与校友广场原有景致相融，打造一处承载交通情怀的文化打卡点。</p>
       </section>
+      <div class="feature-gallery">
+        <figure class="photo wide">
+          <img src="10-anchor-monument-wide.jpg" alt="锚形立标建筑全景">
+          <figcaption>锚形立标建筑全景</figcaption>
+        </figure>
+        <figure class="photo portrait">
+          <img src="11-anchor-monument-plaque.jpg" alt="锚形立标建筑说明牌">
+          <figcaption>《启航》雕塑序文与说明牌</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="12-anchor-monument-detail.jpg" alt="锚形立标建筑近景">
+          <figcaption>锚形立标建筑近景</figcaption>
+        </figure>
+      </div>
 
       <section class="feature">
         <h3 class="feature-title"><span>油麦田</span>“交”字造型小路</h3>
