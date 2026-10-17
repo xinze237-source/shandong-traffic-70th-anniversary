@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>七秩耕耘，交通报国</title>
+  <style>
+    :root {
+      --red: #a51622;
+      --red-dark: #7f0f18;
+      --gold: #b88942;
+      --ink: #262626;
+      --muted: #777;
+      --paper: #fffdf9;
+      --line: #eaded4;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f2f1ef;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.9;
+    }
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 28px rgba(77, 43, 25, .08);
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      background: var(--red);
+    }
+    .hero img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.62 / 1;
+      object-fit: cover;
+      object-position: center;
+      opacity: .78;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(80, 0, 7, .06) 20%, rgba(80, 0, 7, .84) 100%);
+    }
+    .hero-copy {
+      position: absolute;
+      z-index: 1;
+      left: clamp(24px, 7vw, 64px);
+      right: clamp(24px, 7vw, 64px);
+      bottom: clamp(26px, 6vw, 52px);
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 12px;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 99px;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 7vw, 48px);
+      line-height: 1.2;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .hero-subtitle {
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+    }
+    article {
+      padding: 30px clamp(22px, 6vw, 58px) 46px;
+    }
+    .lead {
+      margin: 0 0 28px;
+      padding: 17px 18px;
+      border-left: 4px solid var(--red);
+      background: #fbf5ee;
+      color: #593d33;
+      font-size: 16px;
+      line-height: 1.95;
+    }
+    .intro {
+      margin: 0 0 32px;
+      font-size: 16px;
+      text-align: justify;
+    }
+    .chapter {
+      margin: 38px 0 22px;
+      text-align: center;
+    }
+    .chapter .number {
+      display: block;
+      color: var(--gold);
+      font: 700 12px/1.2 Georgia, serif;
+      letter-spacing: 3px;
+    }
+    h2 {
+      position: relative;
+      display: inline-block;
+      margin: 5px 0 0;
+      color: var(--red-dark);
+      font-size: 22px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 38px;
+      height: 3px;
+      margin: 11px auto 0;
+      background: var(--gold);
+    }
+    .feature {
+      margin: 0 0 28px;
+    }
+    .feature-title {
+      margin: 0 0 10px;
+      color: var(--red-dark);
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .feature-title span {
+      display: inline-block;
+      margin-right: 7px;
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+    p {
+      margin: 0 0 15px;
+      font-size: 16px;
+      text-align: justify;
+    }
+    .photo {
+      margin: 17px 0 10px;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #eee;
+    }
+    .photo img {
+      display: block;
+      width: 100%;
+      max-height: 540px;
+      object-fit: cover;
+    }
+    .photo figcaption {
+      padding: 7px 10px;
+      color: #8b817a;
+      font-size: 12px;
+      line-height: 1.6;
+      text-align: center;
+      background: #faf7f3;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 15px 0 12px;
+    }
+    .photo-grid .photo {
+      margin: 0;
+    }
+    .photo-grid img {
+      height: 225px;
+      object-fit: cover;
+    }
+    .photo-grid .portrait img {
+      object-fit: contain;
+      background: #ede9e4;
+    }
+    .quote {
+      margin: 27px 0;
+      padding: 20px 16px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--red-dark);
+      font-size: 20px;
+      line-height: 1.75;
+      text-align: center;
+      font-weight: 700;
+    }
+    .closing {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .closing p:last-child { margin-bottom: 0; }
+    .footer-mark {
+      margin-top: 30px;
+      color: var(--red);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .credits {
+      margin: 24px 0 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+    .credits img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 520px) {
+      article { padding-top: 23px; }
+      p, .intro { font-size: 15px; }
+      .lead { font-size: 15px; }
+      .photo-grid img { height: 155px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <img src="assets/08-anniversary-board.jpg" alt="学校建校70周年主题展板">
+      <div class="hero-copy">
+        <div class="eyebrow">山东交通学院建校70周年</div>
+        <h1>七秩耕耘，交通报国</h1>
+        <p class="hero-subtitle">校园新景亮相，静待师生、校友共赴七秩之约</p>
+      </div>
+    </header>
+
+    <article>
+      <p class="lead">为迎接学校建校70周年华诞，保障新学期校园环境，后勤保障部立足服务保障职能，抢抓施工窗口期，按照学校校庆整体部署，配合推进多项景观改造，同步布置校庆氛围装饰，用整洁优美的校园环境，静待师生、校友共赴七秩之约。</p>
+
+      <p class="intro">新学期漫步校园，三处全新文化景观正式亮相。</p>
+
+      <section class="chapter">
+        <span class="number">01 / CULTURE</span>
+        <h2>三处新景，迎来七秩之约</h2>
+      </section>
+
+      <section class="feature">
+        <h3 class="feature-title"><span>南大门</span>复刻“交院人精神”雕塑</h3>
+        <p>原“交专人精神”雕塑于1996年10月18日落成于无影山校区南门，凝练“爱校、敬业、务实、创新”的内核，是学校的兴校之基、强校之魂。</p>
+        <p>如今，雕塑复刻落户长清校区南大门。后勤配合完成基座施工、周边绿地修整管护，将这份贯穿校史的精神安放在校园入口，迎接每一位师生与返校校友。</p>
+      </section>
+
+      <section class="feature">
+        <h3 class="feature-title"><span>校友广场南侧</span>锚形立标建筑</h3>
+        <p>校友广场南侧新建锚形立标建筑。锚象征扎根坚守、行稳致远，契合交院交通办学底色。</p>
+        <p>后勤完成场地平整、步道修缮与配套绿化养护，与校友广场原有景致相融，打造一处承载交通情怀的文化打卡点。</p>
+      </section>
+
+      <section class="feature">
+        <h3 class="feature-title"><span>油麦田</span>“交”字造型小路</h3>
+        <p>油麦田内建成“交”字造型小路。步道取“交通”之意，镶嵌于田园之间，自然风貌与校园文化相融。后勤完成步道铺设、土地平整与田间植被管护，成为师生课余漫步休憩的新去处。</p>
+      </section>
+
+      <div class="quote">一草一木，皆是管护；一景一物，重在保障。</div>
+
+      <section class="chapter">
+        <span class="number">02 / CARE</span>
+        <h2>全域提质，细节里见保障</h2>
+      </section>
+
+      <p>除三处新建景观外，后勤同步开展全域环境提质。对校园主干道、广场绿地补植苗木、清理杂草，修缮步道设施，布设校庆花卉小品，持续做好绿化保洁等常态化保障工作。</p>
+      <p>所有景观建设均依照学校校庆整体安排推进，后勤负责场地配套与后期运维管护。校园新貌，献礼七秩。</p>
+
+      <section class="chapter">
+        <span class="number">03 / CAMPUS</span>
+        <h2>校园一隅，留住熟悉风景</h2>
+      </section>
+      <div class="photo-grid">
+        <figure class="photo">
+          <img src="assets/01-campus-statue-wide.jpg" alt="校园人物雕塑与绿地">
+          <figcaption>人物雕塑与校园绿地</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/02-campus-statue-book.jpg" alt="人物雕塑与书本造型景观">
+          <figcaption>人物雕塑与书本造型景观</figcaption>
+        </figure>
+        <figure class="photo portrait">
+          <img src="assets/03-inscription-detail.jpg" alt="石刻文字细节">
+          <figcaption>石刻文字细节</figcaption>
+        </figure>
+        <figure class="photo portrait">
+          <img src="assets/04-inscription-close.jpg" alt="校园景观石刻">
+          <figcaption>校园景观石刻</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/05-campus-statue-front.jpg" alt="人物雕塑正面">
+          <figcaption>人物雕塑正面</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/06-campus-motto.jpg" alt="校园校训石景">
+          <figcaption>校园校训石景</figcaption>
+        </figure>
+        <figure class="photo">
+          <img src="assets/07-campus-landscape.jpg" alt="校园广场与绿地">
+          <figcaption>校园广场与绿地</figcaption>
+        </figure>
+      </div>
+
+      <section class="closing">
+        <p>后续，后勤保障部将持续管护好新建景观，抓实校园环境保障，为全校师生、返校校友营造优美舒适的校园环境，共同迎接山东交通学院70周年校庆。</p>
+        <p>欢迎师生在课余打卡校园新景。如发现设施、绿化相关问题，可通过后勤报修渠道反馈给我们。</p>
+      </section>
+
+      <div class="footer-mark">山东交通学院 · 后勤保障部</div>
+      <figure class="credits">
+        <img src="assets/09-editorial-credits.jpg" alt="文图编辑及文章审核人员署名">
+      </figure>
+    </article>
+  </main>
+</body>
+</html>
